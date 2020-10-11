@@ -1,5 +1,3 @@
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
-        target = sorted(target)
-        arr = sorted(arr)
-        return True if arr == target else False
+        return sorted(target) == sorted(arr)
