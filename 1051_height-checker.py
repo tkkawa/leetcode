@@ -1,8 +1,4 @@
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
-        heights_sort = sorted(heights)
-        count = 0
-        for i in range(len(heights)):
-            if heights[i] != heights_sort[i]:
-                count += 1
-        return count
+        sorted_heights = sorted(heights)
+        return sum([int(sh != h) for sh, h in zip(sorted_heights, heights)])
