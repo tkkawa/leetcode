@@ -8,14 +8,14 @@ class TreeNode:
 class Solution:
     def deepestLeavesSum(self, root: TreeNode) -> int:
         stack = deque([[root, 1]])
-        if not root:
+        if root is None:
             return 0
         maxDepth = 1
         ret = []
         res = 0
         while stack:
             root, depth = stack.popleft()
-            if not root.left and not root.right:
+            if root.left is None and root.right is None:
                 ret.append([root.val, depth])
                 maxDepth = max(maxDepth, depth)
                 continue
@@ -28,3 +28,7 @@ class Solution:
             if ret[i][1] == maxDepth:
                 res += ret[i][0]
         return res
+    # v = node.length
+    # n = leaf.length
+    # time : O(v)
+    # space : O(n)
