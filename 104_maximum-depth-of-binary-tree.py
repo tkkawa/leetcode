@@ -11,6 +11,6 @@ class Solution:
             return 0
         return max(self.maxDepth(root.left) + 1, self.maxDepth(root.right) + 1)
     # v = node.length
-    # e = edge.length
-    # time : O(v+e)
-    # space : O(v)
+    # n = max_Depth
+    # time : O(v)
+    # space : O(n)
