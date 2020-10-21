@@ -1,21 +1,18 @@
-# n = cpdomain.length
-# m = moji.length
-# time : O(n*m)
-# space : O(dic.key nums))
-from collections import Counter
+# N = len(nums)
+# M = len(domain)
+# time: O(NM)
+# space: O(NM)
+
+from collections import defaultdict
+
 class Solution:
     def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
-        dic = Counter()
-        ret = []
-        for i in cpdomains:
-            spl = i.split(' ')
-            moji = spl[1].split('.')
-            mojiretu = moji[-1]
-            dic[mojiretu] += int(spl[0])
-            spl.pop()
-            for j in reversed(range(len(moji)-1)):
-                mojiretu = moji[j] + "." + mojiretu
-                dic[mojiretu] += int(spl[0])
-        for moji, num in dic.items():
-            ret.append(str(num) + " " + moji)
-        return ret
+        ret = defaultdict(int)
+        for domain in cpdomains:
+            count, domain = domain.split()
+            count = int(count)
+            frags = domain.split('.')
+            for i in range(len(frags)):
+                ret[".".join(frags[i:])] += count
+
+        return ["{} {}".format(ct, dom) for dom, ct in ret.items()]
