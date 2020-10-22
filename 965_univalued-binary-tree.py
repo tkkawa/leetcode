@@ -1,3 +1,6 @@
+# v = node num
+# time : O(v)
+# space : O(v)
 # Definition for a binary tree node.
 from collections import deque
 class TreeNode:
