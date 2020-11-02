@@ -1,30 +1,24 @@
-# v = node num
-# time : O(v^2)
-# space : O(v)
-# Definition for a binary tree node.
+# V = node num
+# time: O(V)
+# space: O(V)
 from collections import deque
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def findTarget(self, root: TreeNode, k: int) -> bool:
-        ele = []
-        if root is None:
-            return False
+        ref = {}
         stack = deque([root])
         while stack:
-            root = stack.popleft()
-            if root is None:
+            node = stack.pop()
+            if node is None:
                 continue
-            ele.append(root.val)
-            stack.append(root.left)
-            stack.append(root.right)
-        for i in range(len(ele)):
-            element = ele[i]
-            ele.pop(i)
-            if k - element in ele:
+            if k - node.val in ref:
                 return True
-            ele.insert(i, element)
+            ref[node.val] = 1
+            stack.append(node.left)
+            stack.append(node.right)
         return False
