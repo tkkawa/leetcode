@@ -1,28 +1,27 @@
-# v = node num
-# time : O(v)
-# space : O(v)
-# Definition for a binary tree node.
+# V = node num
+# time: O(V)
+# space: O(V)
+
 from collections import deque
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
     def levelOrderBottom(self, root: TreeNode) -> List[List[int]]:
-        stack = deque([root])
         ret = []
+        stack = deque([(root, 1)])
         while stack:
-            ret_mid = []
-            for i in range(len(stack)):
-                root = stack.popleft()
-                if root is None:
-                    continue
-                ret_mid.append(root.val)
-                stack.append(root.left)
-                stack.append(root.right)
-            if len(ret_mid) == 0:
+            node, depth = stack.popleft()
+            if node is None:
                 continue
-            ret.append(ret_mid)
-        ret.reverse()
-        return ret
+            if len(ret) < depth:
+                ret.append([node.val])
+            else:
+                ret[-1].append(node.val)
+            stack.append([node.left, depth + 1])
+            stack.append([node.right, depth + 1])
+            
+        return ret[::-1]
