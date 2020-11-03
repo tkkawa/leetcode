@@ -1,6 +1,6 @@
 # n = queries.length
 # time : O(n^2)
-# space : O(m)
+# space : O(n+m)
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
         P = [i for i in range(1, m+1)]
