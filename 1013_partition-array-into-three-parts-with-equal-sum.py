@@ -6,10 +6,9 @@ class Solution:
         sub_sum = sum(arr) / 3
         sub = 0
         a = 0
-        for i in range(len(arr)):
-            sub += arr[i]
+        for num in arr:
+            sub += num
             if sub == sub_sum:
                 sub = 0
                 a += 1
-        if a > 2:
-            return True
+        return 2 < a
