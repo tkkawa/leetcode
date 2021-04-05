@@ -3,9 +3,7 @@
 # space = O(1)
 class NumArray:
     def __init__(self, nums: List[int]):
-        self.nums = nums
-        self.res = None
+        self.cumlative_sum = list(accumulate([0] + nums))
         
     def sumRange(self, left: int, right: int) -> int:
-        self.res = sum(self.nums[left:right+1])
-        return self.res
+        return self.cumlative_sum[right + 1] - self.cumlative_sum[left]
