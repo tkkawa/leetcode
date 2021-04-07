@@ -3,15 +3,6 @@
 # space = O(1)
 class Solution:
     def secondHighest(self, s: str) -> int:
-        s = list(s)
-        for i in range(len(s)):
-            if 96 < ord(s[i]) < 123:
-                s[i] = "a"
-            else:
-                s[i] = int(s[i])
-        s = list(set(s))
-        if "a" in s:
-            s.remove("a")
-        if len(s) < 2:
-            return -1
-        return sorted(s)[-2]
+        nums = set(str(num) for num in range(10))
+        digits = set(int(c) for c in s if c in nums)
+        return -1 if len(digits) <= 1 else sorted(digits, reverse=True)[1]
