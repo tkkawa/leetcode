@@ -1,6 +1,6 @@
 # n = s.length
 # time = O(n)
-# space = O(1)
+# space = O(n)
 class Solution:
     def secondHighest(self, s: str) -> int:
         nums = set(str(num) for num in range(10))
