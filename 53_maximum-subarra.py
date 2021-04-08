@@ -1,16 +1,11 @@
 # n = nums.length
-# time = 0(n^2)
-# space = O(n)
+# time = 0(n)
+# space = O(1)
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        max_sub = []
-        idx_sub = []
-        for i in range(len(nums)):
-            sub_nums = nums[i:]
-            sub_nums_acc = list(accumulate(sub_nums))
-            max_val = max(sub_nums_acc)
-            max_idx = sub_nums_acc.index(max_val)
-            max_sub.append(max_val)
-            idx_sub.append([i, max_idx+i+1])
-        res = max_sub.index(max(max_sub))
-        return sum(nums[idx_sub[res][0]:idx_sub[res][1]])
+        ret = max(nums)
+        sub_sum = 0
+        for num in nums:
+            sub_sum = max(0, sub_sum) + num
+            ret = max(ret, sub_sum)
+        return ret
