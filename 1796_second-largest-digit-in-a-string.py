@@ -1,5 +1,5 @@
 # n = s.length
-# time = O(n)
+# time = O(nlogn)
 # space = O(n)
 class Solution:
     def secondHighest(self, s: str) -> int:
