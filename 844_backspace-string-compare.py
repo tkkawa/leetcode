@@ -1,5 +1,5 @@
 # n = max(s.length, t.length)
-# time = O(n)
+# time = O(n^2)
 # space = O(1)
 # done time = 30m
 
