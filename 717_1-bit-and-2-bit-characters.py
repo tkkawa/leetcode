@@ -9,10 +9,10 @@ class Solution:
     def isOneBitCharacter(self, bits: List[int]) -> bool:
         i = 0
         while i < len(bits):
-            flg = 0
+            is_one_bit_char = False
             if bits[i] == 1:
                 i += 2
             else:
                 i += 1
-                flg = 1
-        return flg == 1
+                is_one_bit_char = True
+        return is_one_bit_char
