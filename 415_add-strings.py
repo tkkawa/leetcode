@@ -10,11 +10,11 @@ class Solution:
         total1 = ord(num1[0]) - zero_code
         for i in num1[1:]:
             num = ord(i) - zero_code
-            total1 = total1 * 10 + num
+            total1 = total1*10 + num
         total2 = ord(num2[0]) - zero_code
         for i in num2[1:]:
             num = ord(i) - zero_code
-            total2 = total2 * 10+num
+            total2 = total2*10 + num
         total = total1 + total2
         if total == 0:
             return "0"
