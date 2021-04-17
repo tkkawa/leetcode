@@ -7,12 +7,12 @@
 class Solution:
 
     def isOneBitCharacter(self, bits: List[int]) -> bool:
-        i = 0
-        while i < len(bits):
+        one_or_two_discriminate_idx = 0
+        while one_or_two_discriminate_idx < len(bits):
             is_one_bit_char = False
-            if bits[i] == 1:
-                i += 2
+            if bits[one_or_two_discriminate_idx] == 1:
+                one_or_two_discriminate_idx += 2
             else:
-                i += 1
+                one_or_two_discriminate_idx += 1
                 is_one_bit_char = True
         return is_one_bit_char
