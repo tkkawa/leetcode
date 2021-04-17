@@ -7,11 +7,11 @@
 class Solution:
 
     def pivotIndex(self, nums: List[int]) -> int:
-        nums_sum = sum(nums)
-        if sum(nums[1:]) == 0:
+        cum_sum = list(accumulate(nums))
+        if cum_sum[-1] - cum_sum[0] == 0:
             return 0
-        acc_nums = list(accumulate(nums))
+        nums_sum = cum_sum[-1]
         for i in range(0, len(nums)-1):
-            if nums_sum == acc_nums[i]*2 + nums[i+1]:
-                return i + 1
+            if nums_sum == cum_sum[i]*2 + nums[i+1]:
+                return i+1
         return -1
