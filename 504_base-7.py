@@ -7,16 +7,22 @@
 class Solution:
 
     def convertToBase7(self, num: int) -> str:
-        shou = 1
-        ret = ''
-        num_kari = num
-        while shou > 0:
-            if num < 0:
-                shou, amari = divmod(-num, 7)
-            else:
-                shou, amari = divmod(num, 7)
-            ret = str(amari) + ret
-            num = shou
-        if num_kari < 0:
-            ret = '-' + ret
-        return ret
+        def convert_abs_num_to_base_seven(num: int) -> str:
+            MOD = 7
+            mods = []
+
+            cur_num = num
+            while MOD <= cur_num:
+                div, mod = divmod(cur_num, MOD)
+                mods.append(str(mod))
+                cur_num = div
+            mods.append(str(cur_num))
+            return ''.join(reversed(mods))
+
+
+        if num == 0:
+            return '0'
+
+        abs_num_with_base_seven_str = convert_abs_num_to_base_seven(abs(num))
+
+        return abs_num_with_base_seven_str if 0 < num else f'-{abs_num_with_base_seven_str}'
