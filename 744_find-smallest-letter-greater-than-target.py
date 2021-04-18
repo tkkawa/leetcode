@@ -8,6 +8,6 @@ class Solution:
 
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
         for s in letters:
-            if ord(s) > ord(target):
+            if ord(target) < ord(s):
                 return s
         return letters[0]
