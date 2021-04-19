@@ -8,7 +8,7 @@ class Solution:
 
     def pivotIndex(self, nums: List[int]) -> int:
         cum_sum = list(accumulate(nums))
-        if cum_sum[-1] - cum_sum[0] == 0:
+        if cum_sum[-1] == cum_sum[0]:
             return 0
         nums_sum = cum_sum[-1]
         for i in range(0, len(nums)-1):
