@@ -2,10 +2,14 @@
 # time = O(n)
 # space = O(1)
 # done time = 15m
+
+
 class Solution:
+
     def findLengthOfLCIS(self, nums: List[int]) -> int:
         if not nums:
             return 0
+
         continuous_count = 1
         max_continuous_count = 1
         for i in range(1, len(nums)):
