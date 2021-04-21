@@ -4,6 +4,9 @@
 # done time = 15m
 
 
+from itertools import accumulate
+
+
 class Solution:
 
     def pivotIndex(self, nums: List[int]) -> int:
