@@ -9,6 +9,7 @@ class Solution:
     def guessNumber(self, n: int) -> int:
         if guess(n) == 0:
             return n
+
         low = 1
         high = n
         mid = (low + high) // 2
