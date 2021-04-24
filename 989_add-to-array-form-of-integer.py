@@ -1,6 +1,6 @@
 # n = nums.length
 # time = O(n)
-# space = O(1)
+# space = O(n)
 # done time = 15m
 
 
