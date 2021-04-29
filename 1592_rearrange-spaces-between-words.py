@@ -7,14 +7,16 @@
 class Solution:
 
     def reorderSpaces(self, text: str) -> str:
-        space_num = text.count(' ')
+        num_spaces = Counter(text)[' ']
         words = text.split()
-        if len(words) == 1:
-            return words[0] + " "*space_num
-        space_num_divide, space_mod = divmod(space_num, len(words) - 1)
-        ret = ""
-        for word in words:
-            ret = ret + word + " "*space_num_divide
-        ret = ret.rstrip()
-        ret = ret + " "*space_mod
-        return ret
+        num_places = len(words) - 1
+
+        if num_places == 0:
+            return words[0] + ' '*num_spaces
+
+        num_continuous_space = 0
+
+        while (num_continuous_space + 1) * num_places <= num_spaces:
+            num_continuous_space += 1
+
+        return (' ' * num_continuous_space).join(words) + ' ' * (num_spaces - num_continuous_space*num_places)
