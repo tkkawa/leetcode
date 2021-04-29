@@ -14,5 +14,4 @@ class Solution:
         elif min(c - b, b - a) <= 2:
             return [1, c - a - 2]
 
-        else:
-            return [2, c - a - 2]
+        return [2, c - a - 2]
