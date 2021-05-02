@@ -12,12 +12,15 @@ class Solution:
 
         low = 1
         high = n
-        mid = (low + high) // 2
-        while guess(mid) != 0:
-            if guess(mid) == -1:
+        mid = (low + high) >> 1
+        while low < high:
+            guess_low_high = guess(mid)
+            if guess_low_high == -1:
                 high = mid
-                mid = (low + high) // 2
-            if guess(mid) == 1:
+                mid = (low + high) >> 1
+            elif guess_low_high == 1:
                 low = mid
-                mid = (low + high) // 2
+                mid = (low + high) >> 1
+            else:
+                low += 1
         return mid
