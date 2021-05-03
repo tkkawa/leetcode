@@ -1,4 +1,4 @@
-# n = s.length
+# n = number of divisor of s.length
 # time = O(nlogn)
 # space = O(n)
 # done time = 15m
