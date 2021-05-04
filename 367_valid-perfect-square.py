@@ -15,10 +15,11 @@ class Solution:
 
         while low <= high:
             mid = (low + high) >> 1
-            square = mid*mid
+            square = mid**2
             if square == num:
                 return True
-            elif square < num:
+
+            if square < num:
                 low = mid + 1
             else:
                 high = mid - 1
