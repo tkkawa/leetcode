@@ -6,10 +6,11 @@
 
 class Solution:
 
-    def checkStraightLine(self, arr: List[List[int]]) -> bool:
-        N = len(arr)
+    def checkStraightLine(self, coordinates: List[List[int]]) -> bool:
         return all(
-            (arr[i + 1][1] - arr[i][1]) * (arr[i + 2][0] - arr[i + 1][0]) ==
-            (arr[i + 1][0] - arr[i][0]) * (arr[i + 2][1] - arr[i + 1][1])
-            for i in range(N - 2)
+            (coordinates[i + 1][1] - coordinates[i][1])
+            * (coordinates[i + 2][0] - coordinates[i + 1][0])
+            == (coordinates[i + 1][0] - coordinates[i][0])
+            * (coordinates[i + 2][1] - coordinates[i + 1][1])
+            for i in range(len(coordinates) - 2)
         )
