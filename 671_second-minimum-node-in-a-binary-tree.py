@@ -1,5 +1,5 @@
-# n = node num
-# time = O(n)
+# n = node_vals.length
+# time = O(nlogn)
 # space = O(n)
 # done time = 15m
 
@@ -18,24 +18,13 @@ class TreeNode:
 class Solution:
 
     def findSecondMinimumValue(self, root: TreeNode) -> int:
-        if not root:
-            return -1
-
-        min_val = root.val
-        second_min_val = float('inf')
         stack = deque([root])
+        node_vals = set()
         while stack:
-            root = stack.pop()
-            if min_val < root.val < second_min_val:
-                second_min_val = root.val
-            if not root.left and not root.right:
+            node = stack.popleft()
+            if node is None:
                 continue
-            if root.left:
-                stack.append(root.left)
-            if root.right:
-                stack.append(root.right)
-
-        if second_min_val == float('inf'):
-            return -1
-
-        return second_min_val
+            node_vals.add(node.val)
+            stack.append(node.left)
+            stack.append(node.right)
+        return sorted(node_vals)[1] if 2 <= len(node_vals) else -1
